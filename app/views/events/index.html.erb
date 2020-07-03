@@ -1,6 +1,7 @@
 <div class="container">
   <h1>My Events</h1>
     <% @events.each do |event| %>
+    <% if belong_to_user?(event.creator_id) %>
     <div class="border w-50 text-center">
     <h2 class="text-info">title</h2>
     <p><%= event.title %></p>
@@ -11,6 +12,7 @@
     <span><%= link_to 'Edit', edit_event_path(event), class:"text-primary" %></span>
     <span><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger" %></span>
     </div>
+    <% end %>
     <% end %>
 
   <br>
