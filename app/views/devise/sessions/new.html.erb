@@ -1,3 +1,4 @@
+<div class="container w-25 mx-auto shadow p-3 mb-5 bg-white rounded p-3 mt-3 border">
 <h2>Log in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -13,8 +14,9 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "Log in", class:"border-0 bg-info text-light px-3 py-2 rounded" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>

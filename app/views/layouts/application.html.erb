@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
 <html>
   <head>
     <title>PrivateEvents</title>
@@ -9,7 +11,35 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="m-0">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to root_path do  %>
+        <span class="navbar-brand text-info font-weight-bold d-block">Private Events</span>
+      <% end %>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+      </div>
+
+      <div>
+        <% if user_signed_in? %>
+          <%= link_to edit_user_registration_path do %>
+          <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">
+            <%= current_user.name %>
+          </button>
+          <span>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"text-info" %>
+          </span>
+          <% end %>
+        <% elsif cred_page? %>
+          <%= link_to new_user_session_path do  %>
+          <button class="border-0 bg-info text-light px-3 py-2 rounded">Sign in</button>
+          <% end %>
+          <%= link_to new_user_registration_path do  %>
+          <button class="border-0 bg-info text-light px-3 py-2 rounded">Sign up</button>
+          <% end %>
+        <% end %>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

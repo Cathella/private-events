@@ -1,3 +1,4 @@
+<div class="container w-25 mx-auto shadow p-3 mb-5 bg-white rounded p-3 mt-3 border">
 <h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -22,10 +23,11 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
   </div>
-
+  <br>
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up", class:"border-0 bg-info text-light px-3 py-2 rounded" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
