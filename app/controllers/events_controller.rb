@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    @event = Event.new
     @Users = User.all
   end
 
@@ -29,6 +30,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     @event.creator_id = current_user.id
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to events_path, notice: 'Event was successfully created.' }
@@ -43,6 +45,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    set_event
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
@@ -57,6 +60,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    set_event
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
