@@ -1190,3 +1190,93 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+Migrating to CreateEvents (20200703170858)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "events"[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20200703170858"]]
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (92.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+Migrating to DeviseCreateUsers (20200703153500)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mDROP INDEX "index_users_on_reset_password_token"[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mDROP INDEX "index_users_on_username"[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mDROP INDEX "index_users_on_email"[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20200703153500"]]
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (78.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+Migrating to DeviseCreateUsers (20200703153500)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20200703153500_devise_create_users.rb:5
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "name" varchar, "username" varchar, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200703153500_devise_create_users.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20200703153500_devise_create_users.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_username" ON "users" ("username")[0m
+  ↳ db/migrate/20200703153500_devise_create_users.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20200703153500_devise_create_users.rb:43
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200703153500"]]
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (120.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+Migrating to CreateEvents (20200703170858)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "time" datetime, "creator_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200703170858_create_events.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_events_on_creator_id" ON "events" ("creator_id")[0m
+  ↳ db/migrate/20200703170858_create_events.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200703170858"]]
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (138.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/bin/rake:23

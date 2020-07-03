@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 2020_07_03_170858) do
     t.string "title"
     t.text "description"
     t.datetime "time"
-    t.integer "user_id"
+    t.integer "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_events_on_user_id"
+    t.index ["creator_id"], name: "index_events_on_creator_id"
   end
 
   create_table "users", force: :cascade do |t|
