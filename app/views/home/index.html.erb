@@ -1,3 +1,8 @@
 <div class="container">
   <h1>Welcome Home</h1>
+  <% if user_signed_in? %>
+    <%= link_to events_path do %>
+    <button>Show my events</button>
+    <% end %>
+  <% end %>
 </div>
