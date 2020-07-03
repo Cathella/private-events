@@ -9,7 +9,6 @@
     <p><%= event.description %></p>
     <h2 class="text-info">date</h2>
     <p><%= event.time %></p>
-    <span><%= link_to 'Show', event, class:"text-success" %></span>
     <span><%= link_to 'Edit', edit_event_path(event), class:"text-primary" %></span>
     <span><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger" %></span>
     <% end %>
