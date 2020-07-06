@@ -1397,3 +1397,123 @@ Migrating to CreateUsers (20200706210225)
   ↳ /home/nakitto/.rbenv/versions/2.6.5/bin/rake:23
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /home/nakitto/.rbenv/versions/2.6.5/bin/rake:23
+Started GET "/users/new" for 127.0.0.1 at 2020-07-07 00:32:42 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/nakitto/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (80.9ms)
+  Rendered users/new.html.erb within layouts/application (94.9ms)
+Completed 500 Internal Server Error in 1073ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_signed_in?' for #<#<Class:0x00007f10b8aaf0f8>:0x00007f10b8aacc18>):
+    21:       </div>
+    22: 
+    23:       <div>
+    24:         <% if user_signed_in? %>
+    25:           <%= link_to edit_user_registration_path do %>
+    26:           <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">
+    27:             <%= current_user.name %>
+  
+app/views/layouts/application.html.erb:24:in `_app_views_layouts_application_html_erb__1880120839874230627_69854897272580'
+Started GET "/users/new" for 127.0.0.1 at 2020-07-07 00:36:52 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (24.9ms)
+  Rendered users/new.html.erb within layouts/application (27.5ms)
+Completed 500 Internal Server Error in 575ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_signed_in?' for #<#<Class:0x00007f10b8aaf0f8>:0x00007f10ba962838>):
+    21:       </div>
+    22: 
+    23:       <div>
+    24:         <% if user_signed_in? %>
+    25:           <%= link_to edit_user_registration_path do %>
+    26:           <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">
+    27:             <%= current_user.name %>
+  
+app/views/layouts/application.html.erb:24:in `_app_views_layouts_application_html_erb__1880120839874230627_69854912969460'
+Started GET "/users/new" for 127.0.0.1 at 2020-07-07 00:38:34 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (10.5ms)
+  Rendered users/new.html.erb within layouts/application (11.5ms)
+Completed 500 Internal Server Error in 368ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_signed_in?' for #<#<Class:0x00007f10b8aaf0f8>:0x00007f10acbe94e8>):
+    21:       </div>
+    22: 
+    23:       <!-- <div>
+    24:         <% if user_signed_in? %>
+    25:           <%= link_to edit_user_registration_path do %>
+    26:           <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">
+    27:             <%= current_user.name %>
+  
+app/views/layouts/application.html.erb:24:in `_app_views_layouts_application_html_erb__1880120839874230627_69854797025600'
+Started GET "/users/new" for 127.0.0.1 at 2020-07-07 00:39:59 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (12.6ms)
+  Rendered users/new.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 52ms (Views: 50.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2020-07-07 00:43:53 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (18.0ms)
+  Rendered users/new.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 79ms (Views: 75.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-07-07 00:44:35 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WNniA2jeUS0C4pS+vcT6YtYoWhabKKtkF8SBK+FgabNoGLWvoWXNUnMm0G41krouuWQjBfzqZcyzoMfmoTkbSg==", "user"=>{"username"=>"ncathie", "email"=>"ncathie2020@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ncathie2020@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ncathie"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "ncathie2020@gmail.com"], ["username", "ncathie"], ["password_digest", "$2a$12$i4zgE.ZCk6wXeRn2/8COZ.af86aIeA01F8N/T4ZLYimt2Q.G5QFIG"], ["created_at", "2020-07-06 21:44:35.381192"], ["updated_at", "2020-07-06 21:44:35.381192"]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[35m (14.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 338ms (ActiveRecord: 15.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2020-07-07 00:44:35 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2020-07-07 00:44:53 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2020-07-07 00:45:05 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (4.4ms)
+  Rendered users/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 43ms (Views: 38.7ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
