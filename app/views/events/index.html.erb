@@ -1,4 +1,5 @@
 <div class="container">
+
   <h3 class="mt-5">My Events</h3>
   <div class="d-flex flex-wrap">
     <% @events.each do |event| %>
@@ -12,10 +13,9 @@
     <p><%= event.time %></p>
     <span><%= link_to 'Edit', edit_event_path(event), class:"text-primary" %> <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger" %></span>
     <%= simple_form_for(@attendance) do |f| %>
+    <%= hidden_field_tag(:events_to_attend_id, event.id) %>
     <%= f.button :submit, "Attend" %>
     <% end %>
-
-
     </div>
     <% end %>
     <% end %>

@@ -1,5 +1,5 @@
 class AttendancesController < ApplicationController
-  before_action :set_attendance, only: [:show, :edit, :update, :destroy]
+  # before_action :set_attendance, only: [:show, :edit, :update, :destroy]
 
   # GET /attendances
   # GET /attendances.json
@@ -14,7 +14,7 @@ class AttendancesController < ApplicationController
 
   # GET /attendances/new
   def new
-    @attendance = current_user.attendances.build
+    @attendance = Attendance.new
   end
 
   # GET /attendances/1/edit
@@ -24,13 +24,17 @@ class AttendancesController < ApplicationController
   # POST /attendances
   # POST /attendances.json
   def create
-    @event = Event.find(2)
+    event = params[:events_to_attend_id]
+    @attendance = current_user.attendances.build(events_to_attend_id: event)
 
-    @attendance = current_user.attendances.build(events_to_attend_id: @event.id)
+
+    # @attendance = current_user.attendances.build(events_to_attend_id: @event.id)
+
+
 
     respond_to do |format|
       if @attendance.save
-        format.html { redirect_to @attendance, notice: 'Attendance was successfully created.' }
+        format.html { redirect_to events_path, notice: 'Attendance was successfully created.' }
         format.json { render :show, status: :created, location: @attendance }
       else
         format.html { render :new }
