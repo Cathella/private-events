@@ -12,7 +12,33 @@
   </head>
 
   <body class="m-0">
-    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to root_path do  %>
+        <span class="navbar-brand text-info font-weight-bold d-block">Private Events</span>
+      <% end %>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+      </div>
+
+      <div>
+        <% if current_user %>
+          <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">
+            <%= current_user.username %>
+          </button>
+          <span>
+            <%= link_to "Logout", logout_path, method: :delete, class:"text-info" %>
+          </span>
+        <% else cred_page? %>
+          <%= link_to login_path do  %>
+            <button class="border-0 bg-info text-light px-3 py-2 rounded">Sign in</button>
+          <% end %>
+          <%= link_to signup_path do  %>
+            <button class="border-0 bg-info text-light px-3 py-2 rounded">Sign up</button>
+          <% end %>
+        <% end %>
+      </div>
+    </nav>
+
     <%= yield %>
   </body>
 </html>

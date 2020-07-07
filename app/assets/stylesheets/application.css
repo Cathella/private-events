@@ -17,3 +17,20 @@
    text-decoration: none;
    background: initial;
  }
+
+ input {
+   width: 100%;
+   height: 37px;
+ }
+
+ input[type="submit"] {
+   background: #17a2b8;
+   border: none;
+   color: white;
+   border-radius: 4px;
+   margin-top: 1em;
+ }
+
+ h3 {
+   margin-bottom: 1em;
+ }
