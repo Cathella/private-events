@@ -3702,3 +3702,152 @@ Processing by EventsController#index as HTML
 Completed 200 OK in 161ms (Views: 152.3ms | ActiveRecord: 1.8ms)
 
 
+Started GET "/" for ::1 at 2020-07-07 18:39:24 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/paul/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 630ms (Views: 621.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2020-07-07 18:39:29 +0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 54ms (Views: 52.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2020-07-07 18:39:40 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RdehNxSn/7yPxUaQn9g8n2ZQGxsHyQONBg2oi5O2JduSWizGc02ak2lt9QkmOAcEwKhBqBIcFeyZ0vMw0GASwQ==", "username"=>"ncathie", "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ncathie"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/
+Completed 302 Found in 56ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2020-07-07 18:39:40 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered home/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 50ms (Views: 48.1ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/logout" for ::1 at 2020-07-07 18:39:43 +0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"aQLrdu2+V+98pXhEWZdbiHRG+5BWDdiV5IJ7OdoOjz3jK4unp/tAECGGVE6aplQmHaDFS+sz5bbXVuqwq5Id5Q=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-07 18:39:43 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 47ms (Views: 45.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2020-07-07 18:39:45 +0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 87ms (Views: 85.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2020-07-07 18:39:48 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6aZpBf/2Y6CHv98jFDebRp48pCawSG8glIVM7HkFDGQ+K+T0mBwGj2EXbLqt16DdOMT+laWdeUELWhdXOtM7fg==", "username"=>"hjgfvhtjd", "commit"=>"Login"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "hjgfvhtjd"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 83ms (Views: 79.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for ::1 at 2020-07-07 18:39:56 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jqNAZxJRKiQxqf3R0fTrPbsJr6ToxM8MuD2B2YZPwqoEiiC2WBQ922yK0dsSxeST0u+Rf1X68i+L6RBQ99NQcg==", "username"=>"ncathie", "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ncathie"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-07-07 18:39:56 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 51ms (Views: 49.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events" for ::1 at 2020-07-07 18:39:58 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered events/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 108ms (Views: 53.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/events" for ::1 at 2020-07-07 18:40:58 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered events/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 67ms (Views: 64.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events" for ::1 at 2020-07-07 18:41:12 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered events/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 89ms (Views: 86.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events" for ::1 at 2020-07-07 18:42:01 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered events/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 85ms (Views: 82.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events" for ::1 at 2020-07-07 18:42:22 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered events/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 85ms (Views: 82.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events" for ::1 at 2020-07-07 18:42:45 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered events/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 91ms (Views: 88.9ms | ActiveRecord: 0.5ms)
+
+
