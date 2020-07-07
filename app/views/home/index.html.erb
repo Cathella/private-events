@@ -8,5 +8,21 @@
     <%= link_to events_path do %>
     <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">Show my events</button>
     <% end %>
+
+    <div class="d-flex flex-wrap">
+      <% @events.each do |event| %>
+          <div class="text-center shadow-lg rounded bg-light w-25 py-2 mb-2 mr-2">
+            <h4 class="text-info font-weight-bold">TITLE</h4>
+            <span class="font-weight-normal text-dark"><%= event.title %></span>
+            <h4 class="text-info font-weight-bold">description</h4>
+            <p><%= event.description %></p>
+            <h4 class="text-info font-weight-bold">date</h4>
+            <p><%= event.time %></p>
+            <h4 class="text-info font-weight-bold">Creator</h4>
+            <p><%= User.find(event.creator_id).username %></p>
+            <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">Attend Event</button>
+          </div>
+      <% end %>
+    </div>
   <% end %>
 </div>

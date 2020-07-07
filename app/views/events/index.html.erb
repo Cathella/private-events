@@ -2,17 +2,17 @@
   <h3 class="mt-5">My Events</h3>
   <div class="d-flex flex-wrap">
     <% @events.each do |event| %>
-    <% if belong_to_user?(event.creator_id) %>
-    <div class="text-center shadow-lg rounded bg-light w-25 py-2 mb-2 mr-2">
-    <h4 class="text-info font-weight-bold">TITLE</h4>
-    <span class="font-weight-normal text-dark"><%= event.title %></span>
-    <h4 class="text-info font-weight-bold">description</h4>
-    <p><%= event.description %></p>
-    <h4 class="text-info font-weight-bold">date</h4>
-    <p><%= event.time %></p>
-    <span><%= link_to 'Edit', edit_event_path(event), class:"text-primary" %> <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger" %></span>
-    </div>
-    <% end %>
+      <% if belong_to_user?(event.creator_id) %>
+        <div class="text-center shadow-lg rounded bg-light w-25 py-2 mb-2 mr-2">
+        <h4 class="text-info font-weight-bold">TITLE</h4>
+        <span class="font-weight-normal text-dark"><%= event.title %></span>
+        <h4 class="text-info font-weight-bold">description</h4>
+        <p><%= event.description %></p>
+        <h4 class="text-info font-weight-bold">date</h4>
+        <p><%= event.time %></p>
+        <span><%= link_to 'Edit', edit_event_path(event), class:"text-primary" %> <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger" %></span>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
