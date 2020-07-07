@@ -23,6 +23,10 @@
    height: 37px;
  }
 
+ textarea {
+   width: 100%;
+ }
+
  input[type="submit"] {
    background: #17a2b8;
    border: none;

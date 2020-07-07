@@ -1,25 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container">
+  <h3 class="mt-5">My Events</h3>
     <% @events.each do |event| %>
-      <tr>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% if belong_to_user?(event.creator_id) %>
+    <div class="text-center shadow-lg rounded bg-light w-25 py-2 mb-2">
+    <h4 class="text-info font-weight-bold">TITLE</h4>
+    <span class="font-weight-normal text-dark"><%= event.title %></span>
+    <h4 class="text-info font-weight-bold">description</h4>
+    <p><%= event.description %></p>
+    <h4 class="text-info font-weight-bold">date</h4>
+    <p><%= event.time %></p>
+    <span><%= link_to 'Edit', edit_event_path(event), class:"text-primary" %> <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger" %></span>
+    </div>
     <% end %>
-  </tbody>
-</table>
+    <% end %>
 
-<br>
 
-<%= link_to 'New Event', new_event_path %>
+  <br>
+
+  <%= link_to 'New Event', new_event_path %>
+</div>
