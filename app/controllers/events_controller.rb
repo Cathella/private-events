@@ -7,6 +7,7 @@ class EventsController < ApplicationController
     @events = Event.all
     @event = Event.new
     @Users = User.all
+    @attendance = current_user.attendances.build
   end
 
   # GET /events/1
@@ -16,7 +17,6 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = current_user.events.build
   end
 
   # GET /events/1/edit
