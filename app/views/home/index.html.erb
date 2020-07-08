@@ -20,7 +20,9 @@
             <p><%= event.time %></p>
             <h4 class="text-info font-weight-bold">Creator</h4>
             <p><%= User.find(event.creator_id).username %></p>
-            <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">Attend Event</button>
+            <%= link_to new_attendance_path do %>
+              <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">Attend Event</button>
+            <% end %>
           </div>
       <% end %>
     </div>

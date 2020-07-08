@@ -10,6 +10,7 @@ class AttendancesController < ApplicationController
   # GET /attendances/1
   # GET /attendances/1.json
   def show
+
   end
 
   # GET /attendances/new
@@ -24,7 +25,8 @@ class AttendancesController < ApplicationController
   # POST /attendances
   # POST /attendances.json
   def create
-    @attendance = Attendance.new(attendance_params)
+    @event = Event.find(params[:id])
+    @attendance = Attendance.new(events_to_attend_id: @event.id, attendee_id: current_user.id)
 
     respond_to do |format|
       if @attendance.save

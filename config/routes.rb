@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   resources :home, only: ["index"]
   root 'home#index'
 
-  post "events/:id/attendances", to: "attendances#create", as: "attendance"
+  # post "events/:id/attendances", to: "attendances#create", as: "attendance"
 
+  resources :attendances
   resources :users
   resources :events
   resources :sessions, only: [:new, :create, :destroy]
