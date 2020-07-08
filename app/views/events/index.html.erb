@@ -12,10 +12,6 @@
     <h4 class="text-info font-weight-bold">date</h4>
     <p><%= event.time %></p>
     <span><%= link_to 'Edit', edit_event_path(event), class:"text-primary" %> <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger" %></span>
-    <%= simple_form_for(@attendance) do |f| %>
-    <%= hidden_field_tag(:events_to_attend_id, event.id) %>
-    <%= f.button :submit, "Attend" %>
-    <% end %>
     </div>
     <% end %>
     <% end %>

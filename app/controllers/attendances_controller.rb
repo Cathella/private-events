@@ -22,7 +22,7 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.save
-        format.html { redirect_to events_path, notice: 'Attendance was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Attendance was successfully created.' }
         format.json { render :show, status: :created, location: @attendance }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AttendancesController < ApplicationController
       end
     end
   end
-  
+
   def destroy
     @attendance.destroy
     respond_to do |format|
