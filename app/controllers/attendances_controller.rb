@@ -1,14 +1,9 @@
 class AttendancesController < ApplicationController
-  # before_action :set_attendance, only: [:show, :edit, :update, :destroy]
 
-  # GET /attendances
-  # GET /attendances.json
   def index
     @attendances = Attendance.all
   end
 
-  # GET /attendances/1
-  # GET /attendances/1.json
   def show
   end
 
@@ -21,16 +16,9 @@ class AttendancesController < ApplicationController
   def edit
   end
 
-  # POST /attendances
-  # POST /attendances.json
   def create
     event = params[:events_to_attend_id]
     @attendance = current_user.attendances.build(events_to_attend_id: event)
-
-
-    # @attendance = current_user.attendances.build(events_to_attend_id: @event.id)
-
-
 
     respond_to do |format|
       if @attendance.save
@@ -43,8 +31,6 @@ class AttendancesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /attendances/1
-  # PATCH/PUT /attendances/1.json
   def update
     respond_to do |format|
       if @attendance.update(attendance_params)
@@ -56,9 +42,7 @@ class AttendancesController < ApplicationController
       end
     end
   end
-
-  # DELETE /attendances/1
-  # DELETE /attendances/1.json
+  
   def destroy
     @attendance.destroy
     respond_to do |format|
