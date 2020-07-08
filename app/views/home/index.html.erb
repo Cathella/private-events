@@ -6,6 +6,11 @@
     <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">Show my events</button>
     <% end %>
 
+    <%= link_to current_user do %>
+    <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">Events i am attending</button>
+    <% end %>
+
+
     <h1 class="mt-5">All Events</h1>
     <div class="d-flex flex-wrap">
       <%= render partial: 'event_card' %>

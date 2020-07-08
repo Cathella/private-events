@@ -10,5 +10,13 @@
   <%= @user.username %>
 </p>
 
+<div>
+  <% @attendance.each do |attend| %>
+    <p><%= Event.find(attend.events_to_attend_id).title %></p>
+    <p><%= Event.find(attend.events_to_attend_id).description %></p>
+    <p><%= Event.find(attend.events_to_attend_id).time %></p>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
