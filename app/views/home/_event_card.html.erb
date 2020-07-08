@@ -6,6 +6,7 @@
 <p><%= event.description %></p>
 <h4 class="text-info font-weight-bold">date</h4>
 <p><%= event.time %></p>
+<div class="w-100 bg-secondary text-light py-2 mt-3 font-weight-bold"><%= link_to 'See Attendees', event %></div>
 <div class="w-100 bg-secondary text-light py-2 mt-3 font-weight-bold">Created by: <%= User.find(event.creator_id).username %></div>
 <% if belong_to_user?(event.creator_id) %>
 <div class="w-100 bg-success text-light py-2 mt-1 font-weight-bold">This is Your Event</div>

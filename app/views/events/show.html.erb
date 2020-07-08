@@ -1,4 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<div class="container">
+  <p><%= @event.title %></p>
+  <p><%= @event.description %></p>
+  <p><%= @event.time %></p>
+
+  <div class="">
+    <% @attendance.each do |attend| %>
+      <p><%= User.find(attend.attendee_id).username %></p>
+    <% end %>
+  </div>
+
+</div>
