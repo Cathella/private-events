@@ -18,5 +18,23 @@
   <% end %>
 </div>
 
+<div class="my-4 text-danger">
+  <h1>previous events</h1>
+  <% @previous_events.each do |event| %>
+  <%= event.title %>
+  <%= event.description %>
+  <%= event.time %>
+  <% end %>
+</div>
+
+<div class="my-4 text-danger">
+  <h1>upcoming events</h1>
+  <% @upcoming_events.each do |event| %>
+  <%= event.title %>
+  <%= event.description %>
+  <%= event.time %>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
