@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-  <p><%= @event.title %></p>
-  <p><%= @event.description %></p>
-  <p><%= @event.time %></p>
+  <div class="bg-info p-3 rounded">
+    <h1><%= @event.title %></h1>
+    <p><%= @event.description %></p>
+    <p><%= @event.time %></p>
+  </div>
 
   <div class="">
-    <% @attendance.each do |attend| %>
-      <p><%= User.find(attend.attendee_id).username %></p>
-    <% end %>
+    <h3 class="text-danger mt-3">List of Attendees</h3>
+    <ol>
+      <% @attendance.each do |attend| %>
+        <li class="text-success"><%= User.find(attend.attendee_id).username %></li>
+        <hr>
+      <% end %>
+    </ol>
   </div>
 
 </div>

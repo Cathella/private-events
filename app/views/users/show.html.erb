@@ -1,7 +1,7 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <div class="user-details">
+  <div class="bg-info p-3 mb-3">
     <p>
       <strong>Email:</strong>
       <%= @user.email %>
@@ -13,13 +13,17 @@
     </p>
   </div>
 
-  <div class="my-4 text-danger">
-    <h3>upcoming events</h3>
-    <%= render partial: "up_event_card" %>
+  <div class="">
+    <h3 class="text-danger">Upcoming events</h3>
+    <div class="row">
+      <%= render partial: "up_event_card" %>
+    </div>
   </div>
 
-  <div class="my-4 text-danger">
-    <h3>previous events</h3>
-    <%= render partial: "event_card" %>
+  <div class="">
+    <h3 class="text-danger mt-3">Previous events</h3>
+    <div class="row">
+      <%= render partial: "event_card" %>
+    </div>
   </div>
 </div>
