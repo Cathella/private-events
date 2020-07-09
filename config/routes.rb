@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  resources :home, only: ["index"]
+  resources :home, only: ['index']
   root 'events#index'
 
-  resources :attendances, only: [:new, :create, :destroy]
+  resources :attendances, only: %i[new create destroy]
 
   resources :users
   resources :events
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: %i[new create destroy]
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

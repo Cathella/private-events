@@ -1,11 +1,9 @@
 class AttendancesController < ApplicationController
-
   def index
     @attendances = Attendance.all
   end
 
-  def show
-  end
+  def show; end
 
   # GET /attendances/new
   def new
@@ -13,8 +11,7 @@ class AttendancesController < ApplicationController
   end
 
   # GET /attendances/1/edit
-  def edit
-  end
+  def edit; end
 
   def create
     event = params[:events_to_attend_id]
@@ -52,13 +49,14 @@ class AttendancesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_attendance
-      @attendance = Attendance.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def attendance_params
-      params.fetch(:attendance, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_attendance
+    @attendance = Attendance.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def attendance_params
+    params.fetch(:attendance, {})
+  end
 end

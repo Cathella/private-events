@@ -6926,3 +6926,130 @@ Processing by EventsController#index as HTML
 Completed 200 OK in 146ms (Views: 142.7ms | ActiveRecord: 1.6ms)
 
 
+Started GET "/" for 127.0.0.1 at 2020-07-09 23:16:33 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (time >= '2020-07-09 20:16:33.837330')[0m
+  ↳ app/views/events/_upcoming_event_card.html.erb:1
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/_upcoming_event_card.html.erb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/_upcoming_event_card.html.erb:11
+  [1m[36mAttendance Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "attendances" WHERE "attendances"."events_to_attend_id" = ? AND "attendances"."attendee_id" = ? LIMIT ?[0m  [["events_to_attend_id", 4], ["attendee_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/attendances_helper.rb:4
+  Rendered events/_upcoming_event_card.html.erb (7.9ms)
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (time < '2020-07-09 20:16:33.837640')[0m
+  ↳ app/views/events/_past_event_card.html.erb:1
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/_past_event_card.html.erb:11
+  Rendered events/_past_event_card.html.erb (2.4ms)
+  Rendered events/index.html.erb within layouts/application (40.6ms)
+Completed 200 OK in 128ms (Views: 82.0ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2020-07-09 23:16:36 +0300
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (29.1ms)
+  Rendered events/new.html.erb within layouts/application (30.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 81ms (Views: 79.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2020-07-09 23:16:38 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."events_to_attend_id" WHERE "attendances"."attendee_id" = ? AND (time >= '2020-07-09 20:16:38.684977')[0m  [["attendee_id", 1]]
+  ↳ app/views/users/_up_event_card.html.erb:1
+  Rendered users/_up_event_card.html.erb (7.9ms)
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."events_to_attend_id" WHERE "attendances"."attendee_id" = ? AND (time < '2020-07-09 20:16:38.679356')[0m  [["attendee_id", 1]]
+  ↳ app/views/users/_event_card.html.erb:1
+  Rendered users/_event_card.html.erb (2.6ms)
+  Rendered users/show.html.erb within layouts/application (14.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 58ms (Views: 43.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/attendances" for 127.0.0.1 at 2020-07-09 23:16:46 +0300
+Processing by AttendancesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MlkRI+9zzihxuNSaalFJg4DJAIr9Nn21DGXH4un0TGBb1tCpiWfQ7jajwu9czjjHPCue+DdZkGNlq9NA/Y7Xkg==", "events_to_attend_id"=>"4", "commit"=>"Attend"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/attendances_controller.rb:21
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/attendances_controller.rb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/attendances_controller.rb:21
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("events_to_attend_id", "attendee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["events_to_attend_id", 4], ["attendee_id", 1], ["created_at", "2020-07-09 20:16:46.732248"], ["updated_at", "2020-07-09 20:16:46.732248"]]
+  ↳ app/controllers/attendances_controller.rb:21
+  [1m[35m (99.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/attendances_controller.rb:21
+Redirected to http://localhost:3000/
+Completed 302 Found in 121ms (ActiveRecord: 100.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-07-09 23:16:47 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (time >= '2020-07-09 20:16:47.021557')[0m
+  ↳ app/views/events/_upcoming_event_card.html.erb:1
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/_upcoming_event_card.html.erb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/_upcoming_event_card.html.erb:11
+  [1m[36mAttendance Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "attendances" WHERE "attendances"."events_to_attend_id" = ? AND "attendances"."attendee_id" = ? LIMIT ?[0m  [["events_to_attend_id", 4], ["attendee_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/attendances_helper.rb:4
+  Rendered events/_upcoming_event_card.html.erb (6.7ms)
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (time < '2020-07-09 20:16:47.021743')[0m
+  ↳ app/views/events/_past_event_card.html.erb:1
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/_past_event_card.html.erb:11
+  Rendered events/_past_event_card.html.erb (6.6ms)
+  Rendered events/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 59ms (Views: 55.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-07-09 23:16:51 +0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 61ms (Views: 58.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-07-09 23:16:54 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (time >= '2020-07-09 20:16:54.364509')[0m
+  ↳ app/views/events/_upcoming_event_card.html.erb:1
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/_upcoming_event_card.html.erb:11
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/_upcoming_event_card.html.erb:11
+  [1m[36mAttendance Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "attendances" WHERE "attendances"."events_to_attend_id" = ? AND "attendances"."attendee_id" = ? LIMIT ?[0m  [["events_to_attend_id", 4], ["attendee_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/attendances_helper.rb:4
+  Rendered events/_upcoming_event_card.html.erb (9.5ms)
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (time < '2020-07-09 20:16:54.364666')[0m
+  ↳ app/views/events/_past_event_card.html.erb:1
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/_past_event_card.html.erb:11
+  Rendered events/_past_event_card.html.erb (10.9ms)
+  Rendered events/index.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 102ms (Views: 97.7ms | ActiveRecord: 2.3ms)
+
+
