@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   # GET /users
   # GET /users.json
   def index
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
   def show
     set_user
     @attendance = @user.attendances
+
     @previous_events = @user.previous_events
     @upcoming_events = @user.upcoming_events
   end

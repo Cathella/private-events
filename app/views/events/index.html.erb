@@ -1,25 +1,23 @@
 <div class="container">
+  <h1>This is our events page</h1>
 
-  <h3 class="mt-5">My Events</h3>
-  <div class="d-flex flex-wrap">
-    <% @events.each do |event| %>
-    <% if belong_to_user?(event.creator_id) %>
-    <div class="text-center shadow-lg rounded bg-light w-25 py-2 mb-2 mr-2">
-    <h4 class="text-info font-weight-bold">TITLE</h4>
-    <span class="font-weight-normal text-dark"><%= event.title %></span>
-    <h4 class="text-info font-weight-bold">description</h4>
-    <p><%= event.description %></p>
-    <h4 class="text-info font-weight-bold">date</h4>
-    <p><%= event.time %></p>
-    <span><%= link_to 'Edit', edit_event_path(event), class:"text-primary" %> <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger" %></span>
+  <% if current_user %>
+    <%= link_to events_path do %>
+    <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">Show my events</button>
+    <% end %>
+
+    <%= link_to current_user do %>
+    <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">Events i am attending</button>
+    <% end %>
+
+
+    <h1 class="mt-5">All Events</h1>
+    <div class="">
+      <h3>Upcoming events</h3>
+      <%= render partial: 'upcoming_event_card' %>
+      <h3>Past Events</h3>
+      <%= render partial: 'past_event_card' %>
     </div>
-    <% end %>
-    <% end %>
-  </div>
+  <% end %>
 
-
-
-  <br>
-
-  <%= link_to 'New Event', new_event_path %>
 </div>

@@ -4,10 +4,13 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    # @events = Event.all
     @event = Event.new
-    @Users = User.all
+    # @Users = User.all
     @attendance = Attendance.new
+
+    @upcoming = @event.upcoming
+    @past = @event.past
   end
 
   # GET /events/1
