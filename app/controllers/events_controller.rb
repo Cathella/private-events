@@ -9,8 +9,8 @@ class EventsController < ApplicationController
     # @Users = User.all
     @attendance = Attendance.new
 
-    @upcoming = @event.upcoming
-    @past = @event.past
+    @upcoming = Event.upcoming
+    @past = Event.past
   end
 
   # GET /events/1
@@ -22,6 +22,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
+    @event = Event.new
   end
 
   # GET /events/1/edit

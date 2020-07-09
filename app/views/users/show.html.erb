@@ -1,40 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <div class="user-details">
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+    <p>
+      <strong>Username:</strong>
+      <%= @user.username %>
+    </p>
+  </div>
 
-<div>
-  <% @attendance.each do |attend| %>
-    <p><%= Event.find(attend.events_to_attend_id).title %></p>
-    <p><%= Event.find(attend.events_to_attend_id).description %></p>
-    <p><%= Event.find(attend.events_to_attend_id).time %></p>
-  <% end %>
+  <div class="my-4 text-danger">
+    <h3>upcoming events</h3>
+    <%= render partial: "up_event_card" %>
+  </div>
+
+  <div class="my-4 text-danger">
+    <h3>previous events</h3>
+    <%= render partial: "event_card" %>
+  </div>
 </div>
-
-<div class="my-4 text-danger">
-  <h1>previous events</h1>
-  <% @previous_events.each do |event| %>
-  <%= event.title %>
-  <%= event.description %>
-  <%= event.time %>
-  <% end %>
-</div>
-
-<div class="my-4 text-danger">
-  <h1>upcoming events</h1>
-  <% @upcoming_events.each do |event| %>
-  <%= event.title %>
-  <%= event.description %>
-  <%= event.time %>
-  <% end %>
-</div>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
