@@ -11,7 +11,10 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     set_user
+
     @attendance = @user.attendances
+
+    @events = @user.events
 
     @previous_events = @user.previous_events
     @upcoming_events = @user.upcoming_events
@@ -23,7 +26,8 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /users
   # POST /users.json
