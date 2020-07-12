@@ -17,8 +17,11 @@
         <span class="navbar-brand text-info font-weight-bold d-block">Private Events</span>
       <% end %>
 
+      <% if current_user %>
       <div class="collapse navbar-collapse" id="navbarNav">
+        <%= link_to 'My Events', current_user, class:"border-0 bg-info text-light px-3 py-2 rounded font-weight-bold" %>
       </div>
+      <% end %>
 
       <div>
         <% if current_user %>

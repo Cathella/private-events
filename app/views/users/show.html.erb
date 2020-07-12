@@ -1,7 +1,7 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <div class="bg-info p-3 mb-3">
+  <div class="bg-info p-3 mb-3 text-light">
     <p>
       <strong>Email:</strong>
       <%= @user.email %>
@@ -13,24 +13,42 @@
     </p>
   </div>
 
-  <div class="">
-    <h3 class="text-danger">My events</h3>
-    <div class="row">
-      <%= render partial: "my_events_card" %>
+  <% if @events.any? %>
+    <h3 class="text-danger container">My Events</h3>
+    <div class="d-flex flex-wrap">
+    <% @events.each do |event| %>
+      <%= render partial: 'event_card',:locals => { :event => event } %>
+    <% end %>
     </div>
-  </div>
 
-  <div class="mt-5">
-    <h3 class="text-danger">Upcoming events</h3>
-    <div class="row">
-      <%= render partial: "up_event_card" %>
-    </div>
-  </div>
+    <% else %>
+    <h3>You have not created any events yet</h3>
+    <p class="my-3">
+      <%= link_to 'Create Event', new_event_path, class:"border-0 bg-info text-light px-3 py-2 rounded font-weight-bold" %>
+    </p>
+  <% end %>
 
-  <div class="">
-    <h3 class="text-danger mt-3">Previous events</h3>
-    <div class="row">
-      <%= render partial: "event_card" %>
+  <% if @upcoming_events.any? %>
+    <h3 class="text-danger container mt-5">Upcoming Events</h3>
+    <div class="d-flex flex-wrap">
+    <% @upcoming_events.each do |event| %>
+      <%= render partial: 'event_card',:locals => { :event => event } %>
+    <% end %>
     </div>
-  </div>
+
+    <% else %>
+    <h3>There are no upcoming events</h3>
+  <% end %>
+
+  <% if @previous_events.any? %>
+    <h3 class="text-danger container mt-5">Past Events</h3>
+    <div class="d-flex flex-wrap">
+    <% @previous_events.each do |event| %>
+      <%= render partial: 'event_card',:locals => { :event => event } %>
+    <% end %>
+    </div>
+
+    <% else %>
+    <h3 class="mt-2 text-danger">There are no past events</h3>
+  <% end %>
 </div>

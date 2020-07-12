@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
+<div class="container text-light">
   <div class="bg-info p-3 rounded">
-    <h1><%= @event.title %></h1>
+    <h3>Created by: <%= @event.creator.username %></h3>
+    <h1>Title - <%= @event.title %></h1>
     <p><%= @event.description %></p>
     <p><%= @event.time %></p>
   </div>

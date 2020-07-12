@@ -4,9 +4,11 @@
   </div>
   <% if @upcoming.any? %>
     <h2>Upcoming Events</h2>
+    <div class="d-flex flex-wrap">
     <% @upcoming.each do |event| %>
       <%= render partial: 'event_card',:locals => { :event => event } %>
     <% end %>
+    </div>
   <% end %>
 
   <% if @past.any? %>
