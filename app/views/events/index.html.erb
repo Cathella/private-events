@@ -1,29 +1,18 @@
 <div class="container">
   <div class="bg-info p-5 mt-3 mb-3">
-    <h1>Welcome to Private Events</h1>
+    <h1>All Events</h1>
+    <% if @upcoming.any? %>
+      <h2>Upcoming Events</h2>
+      <% @upcoming.each do |event| %>
+        <%= render partial: 'event_card',:locals => { :event => event } %>
+      <% end %>
+    <% end %>
+
+    <% if @past.any? %>
+      <h2>Past Events</h2>
+      <% @past.each do |event| %>
+        <%= render partial: 'event_card',:locals => { :event => event } %>
+      <% end %>
+    <% end %>
   </div>
-
-
-  <% if current_user %>
-    <%= link_to new_event_path do %>
-    <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">Create event</button>
-    <% end %>
-
-    <%= link_to current_user do %>
-    <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">Events i am attending</button>
-    <% end %>
-
-    <div class="mt-5">
-      <h3>Upcoming events</h3>
-      <div class="row">
-        <%= render partial: 'upcoming_event_card' %>
-      </div>
-      <h3 class="mt-3">Past Events</h3>
-      <div class="row">
-          <%= render partial: 'past_event_card' %>
-      </div>
-
-    </div>
-  <% end %>
-
 </div>
