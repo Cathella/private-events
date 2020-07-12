@@ -9,7 +9,6 @@
 <p><%= event.time %></p>
 <div class="w-100 bg-secondary text-light py-2 mt-3 font-weight-bold"><%= link_to 'See Attendees', event, class:"text-light" %>
 </div>
-
 <% if current_user %>
   <% if attending?(event.id).eql? false and !past?(event.time) %>
   <%= simple_form_for(@attendance) do |f| %>
