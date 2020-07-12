@@ -11,16 +11,16 @@
 </div>
 
 <% if current_user %>
-  <% if !is_attending?(event.id) and !past?(event.time) %>
+  <% if attending?(event.id).eql? false and !past?(event.time) %>
   <%= simple_form_for(@attendance) do |f| %>
   <%= hidden_field_tag(:events_to_attend_id, event.id) %>
   <%= f.button :submit, "Attend", class:"submit-btn" %>
   <% end %>
 
-  <% elsif !past?(event.time) and is_attending?(event.id) %>
+  <% elsif !past?(event.time) and attending?(event.id).eql? true %>
   <div class="w-100 bg-success text-light py-2 mt-1 font-weight-bold">You Are Attending This Event</div>
 
-  <% else %>
+  <% elsif attending?(event.id) %>
     <div class="w-100 bg-success text-light py-2 mt-1 font-weight-bold">You Attended This Event
     </div>
   <% end %>
