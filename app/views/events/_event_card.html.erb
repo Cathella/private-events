@@ -6,18 +6,31 @@
 <p><%= event.description %></p>
 <h4 class="text-info font-weight-bold">date</h4>
 <p><%= event.time %></p>
-<div class="w-100 bg-secondary text-light py-2 mt-3 font-weight-bold"><%= link_to 'See Attendees', event %></div>
-<div class="w-100 bg-secondary text-light py-2 mt-1 font-weight-bold">Created by: <%= User.find(event.creator_id).username %></div>
-<% if belong_to_user?(event.creator_id) %>
-<div class="w-100 bg-primary text-light py-2 mt-1 font-weight-bold">This is Your Event</div>
-<span><%= link_to 'Edit', edit_event_path(event), class:"text-primary" %> <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger" %></span>
-<% elsif !is_attending?(event.id) %>
-<%= simple_form_for(@attendance) do |f| %>
-<%= hidden_field_tag(:events_to_attend_id, event.id) %>
-<%= f.button :submit, "Attend", class:"submit-btn" %>
-<% end %>
-<% else %>
-<div class="w-100 bg-success text-light py-2 mt-1 font-weight-bold">You Are Attending This Event</div>
+<div class="w-100 bg-secondary text-light py-2 mt-3 font-weight-bold"><%= link_to 'See Attendees', event, class:"text-light" %>
+</div>
+
+<% if current_user %>
+  <% if !is_attending?(event.id) and !past?(event.time) %>
+  <%= simple_form_for(@attendance) do |f| %>
+  <%= hidden_field_tag(:events_to_attend_id, event.id) %>
+  <%= f.button :submit, "Attend", class:"submit-btn" %>
+  <% end %>
+
+  <% elsif !past?(event.time) and is_attending?(event.id) %>
+  <div class="w-100 bg-success text-light py-2 mt-1 font-weight-bold">You Are Attending This Event</div>
+
+  <% else %>
+    <div class="w-100 bg-success text-light py-2 mt-1 font-weight-bold">You Attended This Event
+    </div>
+  <% end %>
+
+  <div class="w-100 bg-secondary text-light py-2 mt-1 font-weight-bold">Created by: <%= event.creator.username %>
+  </div>
+
+  <% if belong_to_user?(event.creator_id) %>
+  <div class="w-100 bg-primary text-light py-2 mt-1 font-weight-bold">This is Your Event</div>
+  <span><%= link_to 'Edit', edit_event_path(event), class:"text-primary" %> <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger" %></span>
+  <% end %>
 <% end %>
 </div>
 </div>

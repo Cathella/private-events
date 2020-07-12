@@ -16,8 +16,4 @@ class User < ApplicationRecord
   def upcoming_events
     events_to_attend.where('time >= ?', Time.now)
   end
-
-  def my_events
-    events.where(creator_id: User.id)
-  end
 end

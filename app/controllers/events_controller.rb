@@ -1,12 +1,11 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
-
   # GET /events
   # GET /events.json
   def index
     # @events = Event.all
     @event = Event.new
-    # @Users = User.all
+    @events = Event.all
     @attendance = Attendance.new
 
     @upcoming = Event.upcoming
