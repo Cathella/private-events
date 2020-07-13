@@ -12,7 +12,7 @@
     <h3 class="text-danger mt-3">List of Attendees</h3>
     <ol>
       <% @attendance.each do |attend| %>
-        <li class="text-success"><%= User.find(attend.attendee_id).username %></li>
+      <li class="text-success"> <%= user_attendance(attend.attendee_id) %> </li>
         <hr>
       <% end %>
     </ol>

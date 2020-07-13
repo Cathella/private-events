@@ -12,8 +12,7 @@ class UsersController < ApplicationController
   def show
     set_user
 
-    @attendance = @user.attendances
-
+    @attendance = Attendance.new
     @events = @user.events
 
     @previous_events = @user.previous_events

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :home, only: ['index']
   root 'events#index'
 
   resources :attendances, only: %i[new create destroy]
