@@ -12,7 +12,7 @@
 <% if current_user %>
   <% if attending?(event.id).eql? false and !past?(event.time) %>
   <%= simple_form_for(@attendance) do |f| %>
-  <%= hidden_field_tag(:events_to_attend_id, event.id) %>
+    <%= hidden_field_tag(:events_to_attend_id, event.id) %>
   <%= f.button :submit, "Attend", class:"submit-btn" %>
   <% end %>
 
