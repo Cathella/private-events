@@ -1,37 +1,32 @@
 require 'rails_helper'
 
-RSpec.describe 'Event', type: :model do
-  User.create(username: 'ncathie')
-  let(:event) { Event.new(title: 'my first event reloaded', description: 'most fun filled event ever made', creator_id: 1, time: '2020-07-09') }
-  let(:attendance) { Attendance.new(attendee_id: 1, events_to_attend_id: 2) }
+RSpec.describe Event, type: :model do
+  let(:user) { User.create(username: 'joper', email: 'jsjs@jsjsee.com', password: 'passworddd') }
+  let(:event) { user.events.build(title: 'my first event reloaded', description: 'most fun filled event ever made', time: '2020-07-09 00:00:00') }
+  # let(:attendance) { Attendance.new(attendee_id: 1, events_to_attend_id: 2) }
 
-  context 'Validation test' do
-    it 'ensures users are signed in to create events' do
-      event = Event.new(description: 'most fun filled event ever made', time: '2020-07-09 00:00:00', creator_id: 1)
-      expect(event).not_to be_valid
+  context 'Validation' do
+    it 'ensures the user is signed and the event has a creator' do
+      expect(event.valid?).to eql(true)
     end
+
+    it 'it is invalid if user is not signed in' do
+      event.creator_id = 5
+      expect(event.valid?).to eql(false)
+    end
+
+    it "create an event with it's attributes" do
+      event.title = 'first event'
+      expect(event).to have_attributes(title: 'first event')
+    end
+
+    it { should validate_presence_of(:title) }
+    it { should validate_presence_of(:time) }
   end
 
-  describe 'Load events index page', type: :system do
-    describe 'Contents of the index page' do
-      it 'shows the right content in the index page' do
-        visit events_path
-        expect(page).to have_content('All Events')
-      end
-    end
-  end
-
-  describe 'associations' do
-    it 'is associated to a user' do
-      expect(event).to respond_to(:creator)
-    end
-
-    it 'has many invitations' do
-      expect(event).to respond_to(:attendances)
-    end
-
-    it 'has many attendes' do
-      expect(event).to respond_to(:attendees)
-    end
+  context 'Associations' do
+    it { should belong_to(:creator).class_name('User') }
+    it { should have_many(:attendances).with_foreign_key('events_to_attend_id').class_name('Attendance') }
+    it { should have_many(:attendees).through(:attendances).dependent(:destroy) }
   end
 end
