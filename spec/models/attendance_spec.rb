@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Attendance, type: :model do
   let(:user) { User.create(username: 'joper', email: 'jsjs@jsjsee.com', password: 'passworddd') }
   let(:event) { Event.create(creator_id: user.id, title: 'my first event reloaded', description: 'most fun filled event ever made', time: '2020-07-09 00:00:00') }
-  let(:event_attendance) {event.attendances.build(attendee_id: user.id)}
+  let(:event_attendance) { event.attendances.build(attendee_id: user.id) }
   context 'Validation' do
     it 'ensures that the user and event exist before they can attend event' do
       expect(event_attendance.valid?).to eql(true)
