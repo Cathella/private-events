@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Event, type: :model do
   let(:user) { User.create(username: 'joper', email: 'jsjs@jsjsee.com', password: 'passworddd') }
   let(:event) { user.events.build(title: 'my first event reloaded', description: 'most fun filled event ever made', time: '2020-07-09 00:00:00') }
-  # let(:attendance) { Attendance.new(attendee_id: 1, events_to_attend_id: 2) }
 
   context 'Validation' do
     it 'ensures the user is signed and the event has a creator' do
