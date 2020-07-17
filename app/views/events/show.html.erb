@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container text-light">
+  <div class="bg-info p-3 rounded">
+    <h3>Created by: <%= @event.creator.username %></h3>
+    <h1>Title - <%= @event.title %></h1>
+    <p><%= @event.description %></p>
+    <p><%= @event.time %></p>
+  </div>
+
+  <div class="">
+    <h3 class="text-danger mt-3">List of Attendees</h3>
+    <ol>
+      <% @attendance.each do |attend| %>
+      <li class="text-success"> <%= user_attendance(attend.attendee_id) %> </li>
+        <hr>
+      <% end %>
+    </ol>
+  </div>
+
+</div>

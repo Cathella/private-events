@@ -1,0 +1,16 @@
+<div class="container w-25 mx-auto mt-5">
+<p id="alert"><%= alert %></p>
+
+<h3>Sign In</h3>
+
+<%= form_tag sessions_path do |form| %>
+  <div class="field">
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Login" %>
+  </div>
+<% end %>
+</div>

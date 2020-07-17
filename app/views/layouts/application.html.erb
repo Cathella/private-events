@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
 <html>
   <head>
     <title>PrivateEvents</title>
@@ -9,7 +11,52 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="m-0">
+    <nav class=" d-flex justify-content-between bg-light align-items-center py-2">
+      <div class="d-flex align-items-center">
+        <%= link_to root_path do  %>
+          <span class="navbar-brand text-info font-weight-bold d-block">Private Events</span>
+        <% end %>
+
+        <%= link_to 'Discover Events', root_path, class:"border-0 bg-info text-light py-2 px-3 text-center rounded font-weight-bold d-block" %>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <% if current_user %>
+        <%= link_to 'Create New Event', new_event_path, class:"border-0 bg-info text-light px-3 py-2 rounded font-weight-bold d-block mr-2" %>
+
+        <%= link_to 'My Events', current_user, class:"border-0 bg-info text-light px-3 py-2 rounded font-weight-bold d-block mr-2" %>
+
+          <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">
+            <%= current_user.username %>
+          </button>
+          <span>
+            <%= link_to "Logout", logout_path, method: :delete, class:"text-info" %>
+          </span>
+        <% else cred_page? %>
+          <%= link_to login_path do  %>
+            <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">Sign in</button>
+          <% end %>
+          <%= link_to signup_path do  %>
+            <button class="border-0 bg-info text-light px-3 py-2 rounded mr-2">Sign up</button>
+          <% end %>
+        <% end %>
+      </div>
+    </nav>
+
+    <div class="container" id="notice">
+      <% if flash[:notice] %>
+         <div>
+           <p><%= notice %></p>
+         </div>
+       <% end %>
+       <% if flash[:alert] %>
+         <div>
+           <p><%= alert %></p>
+         </div>
+       <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
